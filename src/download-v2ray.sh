@@ -1,6 +1,6 @@
 _get_latest_version() {
 	v2ray_repos_url="https://api.github.com/repos/v2ray/v2ray-core/releases/latest?v=$RANDOM"
-	v2ray_latest_ver="$(curl -s $v2ray_repos_url | grep 'tag_name' | cut -d\" -f4)"
+	v2ray_latest_ver="v4.27.0"
 
 	if [[ ! $v2ray_latest_ver ]]; then
 		echo
@@ -30,6 +30,7 @@ _download_v2ray_file() {
 	if [[ ! $(cat /root/.bashrc | grep v2ray) ]]; then
 		echo "alias v2ray=$_v2ray_sh" >>/root/.bashrc
 	fi
+	echo -e " $red指定下载 V2Ray v4.27.0!!!$none"
 }
 
 _install_v2ray_service() {
